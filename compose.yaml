@@ -1,0 +1,18 @@
+﻿services:
+  webapplication1:
+    image: webapplication1
+    build:
+      context: .
+      dockerfile: src/Services/Member/Member/Member.API/WebApplication1/Dockerfile
+
+  member.api:
+    image: member.api
+    build:
+      context: .
+      dockerfile: src/Services/Member/Member.API/Dockerfile
+
+  member.backend.api:
+    image: member.backend.api
+    build:
+      context: .
+      dockerfile: src/backend/src/Services/Member/Member.BackEnd.API/Dockerfile
