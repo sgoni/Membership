@@ -65,7 +65,7 @@ public class VaultConfigurationProvider : ISecretManager
 
         Secret<UsernamePasswordCredentials> secret =
             await vaultClient.V1.Secrets.Database.GetCredentialsAsync(
-                _vaultProviderSettings.Role, null, null);
+                _vaultProviderSettings.Role);
 
         _logger.LogInformation("Credentials obtained from Vault");
         _logger.LogInformation($"secret.Data.Username: {secret.Data.Username}");

@@ -17,4 +17,16 @@
         </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Members\CreateMember\" />
+      <Folder Include="Members\DeleteMember\" />
+      <Folder Include="Members\GetMemberById\" />
+      <Folder Include="Members\GetMembers\" />
+      <Folder Include="Members\UpdateMember\" />
+    </ItemGroup>
+
 </Project>
