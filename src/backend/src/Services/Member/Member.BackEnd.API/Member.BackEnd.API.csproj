@@ -8,25 +8,45 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2"/>
+
+        <PackageReference Include="AspNetCore.HealthChecks.ApplicationStatus" Version="9.0.0"/>
+
+        <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="9.0.0"/>
+        <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0"/>
+        <PackageReference Include="Carter" Version="9.0.0"/>
+        <PackageReference Include="Marten" Version="8.0.0-alpha-3"/>
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="9.0.2"/>
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.1"/>
+        <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.11.1"/>
+        <PackageReference Include="OpenTelemetry.Exporter.Prometheus.AspNetCore" Version="1.11.0-beta.1"/>
+        <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.11.1"/>
+        <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.11.0"/>
+        <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.11.0"/>
+        <PackageReference Include="OpenTelemetry.Instrumentation.Process" Version="1.11.0-beta.1"/>
+        <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" Version="1.11.0"/>
+        <PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\..\shared\Membership.Shared.Discovery\Membership.Shared.Discovery.csproj"/>
+        <ProjectReference Include="..\..\..\..\..\shared\Membership.Shared.Email\Membership.Shared.Email.csproj"/>
+        <ProjectReference Include="..\..\..\..\..\shared\Membership.Shared.Logging\Membership.Shared.Logging.csproj"/>
+        <ProjectReference Include="..\..\..\..\..\shared\Membership.Shared.Secrets\Membership.Shared.Secrets.csproj"/>
+        <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Members\DeleteMember\"/>
+        <Folder Include="Members\GetMemberById\"/>
+        <Folder Include="Members\GetMembers\"/>
+        <Folder Include="Members\UpdateMember\"/>
     </ItemGroup>
 
     <ItemGroup>
         <Content Include="..\..\..\..\..\..\.dockerignore">
             <Link>.dockerignore</Link>
         </Content>
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Members\CreateMember\" />
-      <Folder Include="Members\DeleteMember\" />
-      <Folder Include="Members\GetMemberById\" />
-      <Folder Include="Members\GetMembers\" />
-      <Folder Include="Members\UpdateMember\" />
     </ItemGroup>
 
 </Project>

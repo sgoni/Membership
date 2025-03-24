@@ -1,7 +1,7 @@
 ﻿apiVersion: 1
 
 datasources:
-  - name: EasytrackPrometheus
+  - name: MembershipPrometheus
     type: prometheus
     access: proxy
     url: http://prometheus:9090  # URL del contenedor de Prometheus

@@ -1,6 +1,6 @@
 ﻿#!/bin/bash
 
-docker compose -f D:/Repositorio/EasyTrack/docker-compose.yml -f D:/Repositorio/EasyTrack/docker-compose.override.yml up -d
+docker compose -f F:/Repositorio/Membership/docker-compose.yml -f F:/Repositorio/Membership/docker-compose.override.yml up -d
 
 sleep 10 # sleep 30 seconds to give time to docker to finish the setup
 

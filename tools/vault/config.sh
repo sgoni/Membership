@@ -38,7 +38,7 @@ docker exec -it vault vault secrets enable -path='easytrack-api/secrets' -versio
 docker exec -it vault vault write database/config/postgresql \
   plugin_name=postgresql-database-plugin \
   allowed_roles="db-role" \
-  connection_url="postgresql://{{username}}:{{password}}@customerdb:5432/CustomerDb?sslmode=disable" \
+  connection_url="postgresql://{{username}}:{{password}}@memberdb:5432/MemberDb?sslmode=disable" \
   username="postgres" \
   password="postgres"
     
