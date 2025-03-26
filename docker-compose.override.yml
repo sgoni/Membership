@@ -1,17 +1,17 @@
 services:
-  customerdb:
+  memberdb:
     container_name: memberdb
     restart: always
     environment:
-      POSTGRES_DB: Memberdb
+      POSTGRES_DB: MemberDb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
     networks:
-      - membership-net
+      - net
     volumes:
-      - postgres_customer:/var/lib/postgresql/data
+      - postgres_member:/var/lib/postgresql/data
 
   ###########################
   # Discovery configuration #
@@ -24,7 +24,7 @@ services:
       - "8500:8500"      # Puerto para la interfaz web y API HTTP
       - "8600:8600/udp"  # Puerto para consultas DNS
     networks:
-      - membership-net
+      - net
     environment:
       - CONSUL_BIND_INTERFACE=eth0  # Configuración de la interfaz de red
     command: agent -dev -client=0.0.0.0
@@ -42,7 +42,6 @@ services:
     environment:
       VAULT_ADDR: "http://vault:8200"
       # in production scenarios the token mechanisim for loggin will be forbidden,
-      # in production scenarios the token mechanisim for loggin will be forbidden,
       # it cannot be in source control.
       VAULT_DEV_ROOT_TOKEN_ID: "p8ItnHqR5SXlAb8EzXaGSDqp"
       VAULT_TOKEN: "p8ItnHqR5SXlAb8EzXaGSDqp"
@@ -51,7 +50,7 @@ services:
     ports:
       - "8200:8200"
     networks:
-      - membership-net
+      - net
     volumes:
       - vault_file:/vault/file
       - vault_logs:/vault/logs
@@ -66,7 +65,7 @@ services:
       - "27017:27017"
     restart: "on-failure"
     networks:
-      - membership-net
+      - net
     volumes:
       - "mongodb_data:/data/db"
       - "mongodb_config:/data/configdb"
@@ -92,7 +91,7 @@ services:
       - "9200:9200/tcp"
       - "9300:9300/tcp"
     networks:
-      - membership-net
+      - net
     volumes:
       - "graylog-datanode:/var/lib/graylog-datanode"
     restart: "on-failure"
@@ -140,7 +139,7 @@ services:
       - "13302:13302/tcp"
     restart: "on-failure"
     networks:
-      - membership-net
+      - net
     volumes:
       - "graylog_data:/usr/share/graylog/data"
   #############################
@@ -159,7 +158,7 @@ services:
     ports:
       - "3000:3000"  # Expon el puerto 3000    
     networks:
-      - membership-net
+      - net
     volumes:
       - grafana_data:/var/lib/grafana  # Persistencia de datos
       - ./tools/grafana/provisioning/datasources/prometheus-datasource.yml:/etc/grafana/provisioning/datasources/prometheus-datasource.yml
@@ -176,7 +175,7 @@ services:
       - /sys:/host/sys:ro
       - /:/rootfs:ro
     networks:
-      - membership-net
+      - net
   
   otel-collector:
     command: [ "--config=/etc/otel-collector-config.yml" ]
@@ -188,7 +187,7 @@ services:
       - "13133:13133"
       - "4317:4317"
     networks:
-      - membership-net
+      - net
   
   prometheus:
     container_name: prometheus
@@ -196,9 +195,9 @@ services:
     ports:
       - "9090:9090"
     networks:
-      - membership-net
+      - net
     depends_on:
-      - member-api
+      - member.backend.api
     volumes:
       - ./tools/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus-data:/prometheus
@@ -209,22 +208,20 @@ services:
     # Monitoring configuration end #
     ################################
   
-  customer-api:
-    container_name: customer-api
+  member.backend.api:
+    container_name: member.backend.api
     restart: always
     environment:
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=5Ram?X$bre_2s*awAx@5
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetcore-dev-cert.pfx
-      - ConnectionStrings__Database=Server=customerdb;Port=5432;Database=CustomerDb;User Id=postgres;Password=postgres;Include Error Detail=true
+      - ConnectionStrings__Database=Server=memberdb;Port=5432;Database=MemberDb;User Id=postgres;Password=postgres;Include Error Detail=true
       - VAULT_TOKEN=p8ItnHqR5SXlAb8EzXaGSDqp
       - Otel__Endpoint=http://otel-collector:4317
     ports:
       - "6000:8080"
       - "6060:8081"
     networks:
-      - membership-net
+      - net
     depends_on:
       - memberdb
       - consul
@@ -236,4 +233,4 @@ services:
       - ./aspnetcore-dev-cert.pfx:/https/aspnetcore-dev-cert.pfx
 
 networks:
-  membership-net:  
+  net:  

@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{D941EB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A4A6EF1A-0C20-447A-9C1A-D7C78D377C47}"
 	ProjectSection(SolutionItems) = preProject
-		docker-compose.yaml = docker-compose.yaml
+		docker-compose.yml = docker-compose.yml
 		docker-compose.override.yml = docker-compose.override.yml
 	EndProjectSection
 EndProject

@@ -30,7 +30,7 @@ void ConfigureServices(IServiceCollection services, IConfiguration configuration
     // Add Exception Handler
     services.AddExceptionHandler<CustomExceptionHandler>();
 
-    // Register the ConsulServiceDiscovery class as a service
+    // Register the AddVaultService class as a service
     builder.Services.AddVaultService(builder.Configuration);
 
     using (var scope = builder.Services.BuildServiceProvider().CreateScope())
@@ -61,7 +61,7 @@ void ConfigureServices(IServiceCollection services, IConfiguration configuration
         .CreateLogger();
     builder.Host.UseSerilog();
 
-    if (builder.Environment.IsDevelopment()) builder.Services.InitializeMartenWith<MemberInitialData>();
+    //if (builder.Environment.IsDevelopment()) builder.Services.InitializeMartenWith<MemberInitialData>();
 
     // Add Health Checks
     services
@@ -94,8 +94,8 @@ void ConfigureServices(IServiceCollection services, IConfiguration configuration
         .ConfigureResource(resource => resource.AddService(assembly.FullName))
         .WithMetrics(opt =>
             opt
-                .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("Customer.API"))
-                .AddMeter("Customer.API.Metrics")
+                .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("Member.API"))
+                .AddMeter("Member.API.Metrics")
                 .AddAspNetCoreInstrumentation() // ASP.NET Core related
                 .AddRuntimeInstrumentation() // .NET Runtime metrics like - GC, Memory Pressure, Heap Leaks etc
                 .AddPrometheusExporter() // Prometheus Exporter
