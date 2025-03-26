@@ -1,0 +1,49 @@
+﻿services:
+  consul:
+    image: consul:latest  # Imagen oficial de Consul
+
+  memberdb:
+    image: postgres:17.2
+
+  datanode:
+    image: "graylog/graylog-datanode:6.1"
+
+  grafana:
+    image: grafana/grafana:latest   # Usa la última versión de Grafana  
+
+  graylog:
+    image: "graylog/graylog:6.1"
+
+  node_exporter:
+    image: quay.io/prometheus/node-exporter:v1.5.0
+
+  mongodb:
+    image: mongo:latest
+
+  otel-collector:
+    image: otel/opentelemetry-collector:0.95.0
+
+  prometheus:
+    image: prom/prometheus:latest
+
+  vault:
+    image: hashicorp/vault:1.17
+  
+  member.backend.api:
+    image: ${DOCKER_REGISTRY-}member.backend.api
+    build:
+      context: .
+      dockerfile: src/backend/src/Services/Member/Member.BackEnd.API/Dockerfile
+
+volumes:
+  consul_data:
+  consul_config:
+  grafana_data:
+  graylog-datanode:
+  graylog_data:
+  mongodb_data:
+  mongodb_config:
+  postgres_member:
+  prometheus-data:
+  vault_file:
+  vault_logs:
