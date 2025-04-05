@@ -15,7 +15,7 @@ public class ConsulServiceDiscovery : IServiceDiscovery
 {
     private readonly ConsulConfig _config;
     private readonly IConsulClient _consulClient;
-    private readonly ILogger<ConsulRegistrationService> _logger;
+    private readonly ILogger<ConsulServiceDiscovery> _logger;
 
     public ConsulServiceDiscovery(IOptions<ConsulConfig> options)
     {

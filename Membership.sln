@@ -12,9 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		docker-compose.override.yml = docker-compose.override.yml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Member", "Member", "{AE095BA0-AF58-45E9-ADE3-875AA0D201F4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Person", "Person", "{AE095BA0-AF58-45E9-ADE3-875AA0D201F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Member.BackEnd.API", "src\backend\src\Services\Member\Member.BackEnd.API\Member.BackEnd.API.csproj", "{C6A6F0B0-FFCC-4136-9223-059A3D39F072}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Person.BackEnd.API", "src\backend\src\Services\Member\Person.BackEnd.API\Person.BackEnd.API.csproj", "{C6A6F0B0-FFCC-4136-9223-059A3D39F072}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "src\backend\src\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj", "{E9E24FB4-804E-4300-BE79-E611F03F5A65}"
 EndProject
@@ -22,9 +22,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Membership.Shared.Email", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Membership.Shared.Secrets", "src\shared\Membership.Shared.Secrets\Membership.Shared.Secrets.csproj", "{38CAC74C-32B4-4621-BD16-276E9B6DC364}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Membership.Shared.Discovery", "src\shared\Membership.Shared.Discovery\Membership.Shared.Discovery.csproj", "{56004F04-FF37-41BC-8FA8-50AC782E95CC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Membership.Shared.Logging", "src\shared\Membership.Shared.Logging\Membership.Shared.Logging.csproj", "{B8E3CAA8-EC51-464A-AA34-B74D8A862CCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Membership.Shared.Discovery", "src\shared\Membership.Shared.Discovery\Membership.Shared.Discovery.csproj", "{0D839B4E-46B8-4332-840B-7C92290C1C5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,8 +37,8 @@ Global
 		{E9E24FB4-804E-4300-BE79-E611F03F5A65} = {AE0D522B-8C04-415A-B1CF-69E67BD4CC0C}
 		{1B82B4BE-F7D5-407B-B4A2-F9449D79DD15} = {D941EBAE-7104-4297-A970-39A0E4AA4BCC}
 		{38CAC74C-32B4-4621-BD16-276E9B6DC364} = {D941EBAE-7104-4297-A970-39A0E4AA4BCC}
-		{56004F04-FF37-41BC-8FA8-50AC782E95CC} = {D941EBAE-7104-4297-A970-39A0E4AA4BCC}
 		{B8E3CAA8-EC51-464A-AA34-B74D8A862CCA} = {D941EBAE-7104-4297-A970-39A0E4AA4BCC}
+		{0D839B4E-46B8-4332-840B-7C92290C1C5F} = {D941EBAE-7104-4297-A970-39A0E4AA4BCC}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C6A6F0B0-FFCC-4136-9223-059A3D39F072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -57,13 +57,13 @@ Global
 		{38CAC74C-32B4-4621-BD16-276E9B6DC364}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38CAC74C-32B4-4621-BD16-276E9B6DC364}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38CAC74C-32B4-4621-BD16-276E9B6DC364}.Release|Any CPU.Build.0 = Release|Any CPU
-		{56004F04-FF37-41BC-8FA8-50AC782E95CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56004F04-FF37-41BC-8FA8-50AC782E95CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56004F04-FF37-41BC-8FA8-50AC782E95CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56004F04-FF37-41BC-8FA8-50AC782E95CC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B8E3CAA8-EC51-464A-AA34-B74D8A862CCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B8E3CAA8-EC51-464A-AA34-B74D8A862CCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8E3CAA8-EC51-464A-AA34-B74D8A862CCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8E3CAA8-EC51-464A-AA34-B74D8A862CCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D839B4E-46B8-4332-840B-7C92290C1C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D839B4E-46B8-4332-840B-7C92290C1C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D839B4E-46B8-4332-840B-7C92290C1C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D839B4E-46B8-4332-840B-7C92290C1C5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

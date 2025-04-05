@@ -1,6 +1,6 @@
-﻿namespace Member.BackEnd.API.Models;
+﻿namespace Person.BackEnd.API.Models;
 
-public class Member
+public class Person
 {
     public Guid Id { get; set; }
     public string Dni { get; set; }
@@ -29,10 +29,7 @@ public class Member
         Age = today.Year - Birthdate.Year;
 
         // Ajustar la edad si aún no ha pasado el cumpleaños este año
-        if (Birthdate.Date > today.AddYears(-Age))
-        {
-            Age--;
-        }
+        if (Birthdate.Date > today.AddYears(-Age)) Age--;
     }
 }
 
@@ -58,7 +55,7 @@ public record EmergencyContact
 public record Labor
 {
     public string? Profession { get; set; }
-    public double? LaborSector { get; set; }
+    public string? LaborSector { get; set; }
 }
 
 public record PersonalHealthStatus

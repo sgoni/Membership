@@ -1,3 +1,5 @@
+using Person.BackEnd.API.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 var assembly = Assembly.GetExecutingAssembly();
 
@@ -61,7 +63,7 @@ void ConfigureServices(IServiceCollection services, IConfiguration configuration
         .CreateLogger();
     builder.Host.UseSerilog();
 
-    //if (builder.Environment.IsDevelopment()) builder.Services.InitializeMartenWith<MemberInitialData>();
+    if (builder.Environment.IsDevelopment()) builder.Services.InitializeMartenWith<PersonInitialData>();
 
     // Add Health Checks
     services
@@ -112,7 +114,18 @@ void ConfigureMiddleware(WebApplication app)
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
-        app.UseSwaggerUI();
+        app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Person.BackEnd.API v1"));
+        // app.UseSwagger(c =>
+        // {
+        //     // Esto asegura que la versión de OpenAPI esté correctamente especificada
+        //     c.SerializeAsV2 = false; // Usa OpenAPI 3.0 (por defecto)
+        // });
+//
+        // app.UseSwaggerUI(c =>
+        // {
+        //     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Membership API v1");
+        //     c.RoutePrefix = string.Empty; // Para servir la UI de Swagger en la raíz
+        // });
     }
 
     // Add Middleware

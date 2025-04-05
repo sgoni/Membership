@@ -6,7 +6,7 @@ export VAULT_ADDR='http://vault:8200'
 
 docker compose -f docker-compose.yml -f docker-compose.override.yml up -d --build
 
-sleep 40 # sleep 30 seconds to give time to docker to finish the setup
+sleep 30 # sleep 30 seconds to give time to docker to finish the setup
 
 # verify the connection 
 echo docker exec -it vault vault status
@@ -18,7 +18,7 @@ docker exec -it vault vault secrets enable database
 
 ## Configure PostgreSQL connection
 echo Configure PostgreSQL connection.  
-docker exec -it vault vault write database/config/postgresql/membership \
+docker exec -it vault vault write database/config/postgresql \
   plugin_name=postgresql-database-plugin \
   allowed_roles="db-role" \
   connection_url="postgresql://{{username}}:{{password}}@memberdb:5432/MemberDb?sslmode=disable" \
