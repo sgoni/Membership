@@ -33,7 +33,7 @@
     image: ${DOCKER_REGISTRY-}member.backend.api
     build:
       context: .
-      dockerfile: src/backend/src/Services/Member/Member.BackEnd.API/Dockerfile
+      dockerfile: src/backend/src/Services/Person/Person.BackEnd.API/Dockerfile
 
 volumes:
   consul_data:

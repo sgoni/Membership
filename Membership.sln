@@ -14,8 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Person", "Person", "{AE095BA0-AF58-45E9-ADE3-875AA0D201F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Person.BackEnd.API", "src\backend\src\Services\Member\Person.BackEnd.API\Person.BackEnd.API.csproj", "{C6A6F0B0-FFCC-4136-9223-059A3D39F072}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "src\backend\src\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj", "{E9E24FB4-804E-4300-BE79-E611F03F5A65}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Membership.Shared.Email", "src\shared\Membership.Shared.Email\Membership.Shared.Email.csproj", "{1B82B4BE-F7D5-407B-B4A2-F9449D79DD15}"
@@ -26,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Membership.Shared.Logging",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Membership.Shared.Discovery", "src\shared\Membership.Shared.Discovery\Membership.Shared.Discovery.csproj", "{0D839B4E-46B8-4332-840B-7C92290C1C5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Person.BackEnd.API", "src\backend\src\Services\Person\Person.BackEnd.API\Person.BackEnd.API.csproj", "{F463D54E-9967-4281-8230-A6F1F8BC4B61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,18 +33,14 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AE095BA0-AF58-45E9-ADE3-875AA0D201F4} = {E52AD766-B442-4A0D-941B-D263EB2E2E0D}
-		{C6A6F0B0-FFCC-4136-9223-059A3D39F072} = {AE095BA0-AF58-45E9-ADE3-875AA0D201F4}
 		{E9E24FB4-804E-4300-BE79-E611F03F5A65} = {AE0D522B-8C04-415A-B1CF-69E67BD4CC0C}
 		{1B82B4BE-F7D5-407B-B4A2-F9449D79DD15} = {D941EBAE-7104-4297-A970-39A0E4AA4BCC}
 		{38CAC74C-32B4-4621-BD16-276E9B6DC364} = {D941EBAE-7104-4297-A970-39A0E4AA4BCC}
 		{B8E3CAA8-EC51-464A-AA34-B74D8A862CCA} = {D941EBAE-7104-4297-A970-39A0E4AA4BCC}
 		{0D839B4E-46B8-4332-840B-7C92290C1C5F} = {D941EBAE-7104-4297-A970-39A0E4AA4BCC}
+		{F463D54E-9967-4281-8230-A6F1F8BC4B61} = {AE095BA0-AF58-45E9-ADE3-875AA0D201F4}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C6A6F0B0-FFCC-4136-9223-059A3D39F072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C6A6F0B0-FFCC-4136-9223-059A3D39F072}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C6A6F0B0-FFCC-4136-9223-059A3D39F072}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C6A6F0B0-FFCC-4136-9223-059A3D39F072}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E9E24FB4-804E-4300-BE79-E611F03F5A65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E9E24FB4-804E-4300-BE79-E611F03F5A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9E24FB4-804E-4300-BE79-E611F03F5A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,5 +61,9 @@ Global
 		{0D839B4E-46B8-4332-840B-7C92290C1C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D839B4E-46B8-4332-840B-7C92290C1C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D839B4E-46B8-4332-840B-7C92290C1C5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F463D54E-9967-4281-8230-A6F1F8BC4B61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F463D54E-9967-4281-8230-A6F1F8BC4B61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F463D54E-9967-4281-8230-A6F1F8BC4B61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F463D54E-9967-4281-8230-A6F1F8BC4B61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

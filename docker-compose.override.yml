@@ -212,11 +212,12 @@ services:
     container_name: member.backend.api
     restart: always
     environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      #- ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/app/certs/aspnetcore-dev-cert.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=5Ram?X$bre_2s*awAx@5
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=5Ram?X$bre_2s*awAx@5
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetcore-dev-cert.pfx
       - ConnectionStrings__Database=Server=memberdb;Port=5432;Database=MemberDb;User Id=postgres;Password=postgres;Include Error Detail=true
       - VAULT_TOKEN=p8ItnHqR5SXlAb8EzXaGSDqp
       - Otel__Endpoint=http://otel-collector:4317
@@ -226,14 +227,13 @@ services:
     networks:
       - net
     depends_on:
-      - memberdb
       - consul
       - graylog
+      - memberdb
       - vault
     volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
-      - ./aspnetcore-dev-cert.pfx:/https/aspnetcore-dev-cert.pfx
+      - ./certs/aspnetcore-dev-cert.pfx:/https/aspnetcore-dev-cert.pfx
+      - ./certs:/app/certs:ro  # Asegúrate de que la carpeta local 'certs' existe y contiene tu certificado
 
 networks:
   net:  
