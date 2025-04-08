@@ -21,6 +21,7 @@ global using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 global using Microsoft.Extensions.Diagnostics.HealthChecks;
 global using OpenTelemetry.Metrics;
 global using OpenTelemetry.Resources;
+global using Person.BackEnd.API.Data;
 global using Person.BackEnd.API.Exceptions;
 global using Person.BackEnd.API.Models;
 global using Prometheus;
