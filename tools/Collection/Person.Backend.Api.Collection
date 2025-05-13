@@ -1,0 +1,285 @@
+type: collection.insomnia.rest/5.0
+name: Person.BackEnd.API
+meta:
+  id: wrk_8b37a8880ca24f0bbd48857f28791b4d
+  created: 1743740583363
+  modified: 1743790843003
+collection:
+  - url: "{{ _.base_url }}/persons"
+    name: Update Person
+    meta:
+      id: req_901ff444cbde41b8a94c725012d97eb8
+      created: 1743815757425
+      modified: 1743815953236
+      isPrivate: false
+      description: Update Person
+      sortKey: -1743815757425
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"Id": "01960385-cb5b-4582-ac4b-0107cae751e9",
+          "dni": "111111111",
+          "firstName": "Laura",
+          "firstSurname": "Gómez",
+          "secondSurname": "Ramírez",
+          "gender": "F",
+          "birthdate": "1995-08-21T00:00:00.000Z",
+          "maritalStatus": "Single",
+          "nationality": "Costa Rican",
+          "phoneNumber": "22457896",
+          "mobile": "88235679",
+          "email": "laura.gomez@example.com",
+          "isBaptized": true,
+          "skills": "Teaching, Leadership",
+          "address": {
+            "province": 1,
+            "canton": 2,
+            "district": 3,
+            "street": "Calle 45, Barrio Escalante",
+            "zipCode": "10104",
+            "longitude": -84.0912,
+            "latitude": 9.9281,
+            "plusCode": "WV84+476 San José"
+          },
+          "emergencyContact": {
+            "firstName": "José",
+            "lastName": "Mora",
+            "phoneNumber": "87945612"
+          },
+          "labor": {
+            "profession": "Engineer",
+            "laborSector": "Telecommunications"
+          },
+          "personalHealthStatus": {
+            "medicalCondition": false,
+            "description": ""
+          },
+          "membership": {
+            "membershipStatus": true,
+            "timeToCongregate": 3,
+            "area": "Youth Ministry",
+            "attendance": "Frequent"
+          }
+        }
+    headers:
+      - name: Content-Type
+        disabled: false
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/persons"
+    name: Get Persons
+    meta:
+      id: req_138c567a5f584d6ca344b4500648dc40
+      created: 1743815757426
+      modified: 1743816057810
+      isPrivate: false
+      description: Get Persons
+      sortKey: -1743815757426
+    method: GET
+    parameters:
+      - name: PageNumber
+        disabled: true
+        value: "2"
+        id: pair_83d36acaece64db59fcb967f800fe2a4
+      - name: PageSize
+        disabled: true
+        value: "10"
+        id: pair_b705e70c46fb476eb563fe9bb8d32eb5
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/persons"
+    name: Create Person
+    meta:
+      id: req_a72de3f7a4a541b78ee4b0b8d5704fdd
+      created: 1743815757426
+      modified: 1743815820583
+      isPrivate: false
+      description: Creates a new person.
+      sortKey: -1743815757426
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "dni": "89452371",
+          "firstName": "Laura",
+          "firstSurname": "Gómez",
+          "secondSurname": "Ramírez",
+          "gender": "F",
+          "birthdate": "1995-08-21T00:00:00.000Z",
+          "maritalStatus": "Single",
+          "nationality": "Costa Rican",
+          "phoneNumber": "22457896",
+          "mobile": "88235679",
+          "email": "laura.gomez@example.com",
+          "isBaptized": true,
+          "skills": "Teaching, Leadership",
+          "address": {
+            "province": 1,
+            "canton": 2,
+            "district": 3,
+            "street": "Calle 45, Barrio Escalante",
+            "zipCode": "10104",
+            "longitude": -84.0912,
+            "latitude": 9.9281,
+            "plusCode": "WV84+476 San José"
+          },
+          "emergencyContact": {
+            "firstName": "José",
+            "lastName": "Mora",
+            "phoneNumber": "87945612"
+          },
+          "labor": {
+            "profession": "Engineer",
+            "laborSector": "Telecommunications"
+          },
+          "personalHealthStatus": {
+            "medicalCondition": false,
+            "description": ""
+          },
+          "membership": {
+            "membershipStatus": true,
+            "timeToCongregate": 3,
+            "area": "Youth Ministry",
+            "attendance": "Frequent"
+          }
+        }
+    headers:
+      - name: Content-Type
+        disabled: false
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/persons/01960385-cb5b-4582-ac4b-0107cae751e9"
+    name: Get Person By Id
+    meta:
+      id: req_35abbd0d66ae462097ae888d186b80eb
+      created: 1743815757428
+      modified: 1743815833162
+      isPrivate: false
+      description: Get Person By Id
+      sortKey: -1743815757428
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/persons/0196094e-289d-40d9-88c8-f75fdbcd983c"
+    name: Delete Person
+    meta:
+      id: req_358a1ffb089a4fdd94f23b7d3a8b230b
+      created: 1743815757429
+      modified: 1743915041739
+      isPrivate: false
+      description: Delete person
+      sortKey: -1743815757429
+    method: DELETE
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/persons/dni/111111111"
+    name: Get Person By Dni
+    meta:
+      id: req_6fe9dd5b65ef4414b353fe97cbd8b76d
+      created: 1743815757431
+      modified: 1743815965810
+      isPrivate: false
+      description: Get Person By Dni
+      sortKey: -1743815757431
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_cb8e73759007816adec52d1231aeb9e9314b2754
+    created: 1743740583367
+    modified: 1743740583367
+environments:
+  name: Base Environment
+  meta:
+    id: env_cb8e73759007816adec52d1231aeb9e9314b2754
+    created: 1743740583366
+    modified: 1743815757422
+    isPrivate: false
+  data:
+    base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
+  subEnvironments:
+    - name: OpenAPI env example.com
+      meta:
+        id: env_bd7d491d62c743f28ae31bd240b6c894
+        created: 1743740610363
+        modified: 1743740610363
+        isPrivate: false
+        sortKey: 1743740610363
+      data:
+        scheme: http
+        host: example.com
+    - name: production
+      meta:
+        id: env_f18bddf63b38433cb7c35a8cb849295b
+        created: 1743740642790
+        modified: 1743740925140
+        isPrivate: false
+        sortKey: 1743740642790
+      data:
+        scheme: https
+        host: localhost:6060
+      color: "#c72929"
+    - name: dev
+      meta:
+        id: env_15c259b6f49c406a92557e0e1d29f99e
+        created: 1743740901012
+        modified: 1743740917126
+        isPrivate: false
+        sortKey: 1743740901012
+      data:
+        scheme: https
+        host: localhost:5050
+      color: "#31c62f"
+    - name: OpenAPI env example.com
+      meta:
+        id: env_ad9ae7c0c95b49d683b7b4ed7f2a6b73
+        created: 1743815757423
+        modified: 1743815757423
+        isPrivate: false
+        sortKey: 1743815757424
+      data:
+        scheme: http
+        host: example.com
