@@ -38,7 +38,7 @@ public class CreatePersonEndpoint : ICarterModule
                 }
             )
             .WithName("CreatePerson")
-            .Produces<CreatePersonResponse>()
+            .Produces<CreatePersonResponse>(statusCode: StatusCodes.Status201Created)
             .ProducesProblem(400)
             .WithSummary("Create Person")
             .WithDescription("Creates a new person.");
